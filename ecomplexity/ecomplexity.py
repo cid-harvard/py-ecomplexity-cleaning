@@ -166,6 +166,7 @@ def ecomplexity(
             - cog: Complexity Outlook Gain
 
     """
+    logging.info("Beginning ecomplexity for atlas cleaning")
     cdata = ComplexityData(data, cols_input, val_errors_flag)
 
     cdata.output_list = []
@@ -224,6 +225,8 @@ def ecomplexity(
         # Normalize variables as per STATA package
         # Normalization using ECI mean and std. dev. preserves the property that 
         # ECI = (mean of PCI of products for which MCP=1)
+        import pdb
+        pdb.set_trace()
         cdata.pci_t = (cdata.pci_t - cdata.eci_t.mean()) / cdata.eci_t.std()
         cdata.cog_t = cdata.cog_t / cdata.eci_t.std()
         cdata.eci_t = (cdata.eci_t - cdata.eci_t.mean()) / cdata.eci_t.std()
